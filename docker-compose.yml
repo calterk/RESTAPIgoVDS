@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    ports:
+      - "80:80"
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgre
+      POSTGRES_DB: vds
+    ports:
+      - "5433:5432"
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    depends_on:
+      - db
+    ports:
+      - "8090:8090"
+    environment:
+      DB_DSN: "host=db user=postgres password=postgre dbname=vds port=5432"
+
+volumes:
+  postgres_data:

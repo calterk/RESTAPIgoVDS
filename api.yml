@@ -1,0 +1,40 @@
+server:
+  port: ${SERVER.PORT:8090}
+  timeout: ${SERVER.TIMEOUT:10}
+api:
+  # vds.go
+  CreateVds:
+    method: POST
+    url: vds
+  DeleteVds:
+    method: DELETE
+    url: vds/{id}
+  UpdateVds:
+    method: PUT
+    url: vds/{id}
+  GetAll:
+    method: GET
+    url: vds
+  GetById:
+    method: GET
+    url: vds/{id}
+  # user.go
+  CreateUser:
+    method: POST
+    url: user
+  DeleteUser:
+    method: DELETE
+    url: user/{id}
+  UpdateUser:
+    method: PUT
+    url: user/{id}
+  GetUser:
+    method: GET
+    url: user
+  GetByUser:
+    method: GET
+    url: user/{id}
+  #auth
+  Auth:
+    method: POST
+    url: auth

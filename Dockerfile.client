@@ -1,0 +1,8 @@
+# Базовый образ для nginx
+FROM nginx:alpine
+
+# Копирование файлов клиентской части в директорию, обслуживаемую nginx
+COPY ./tpl/js /usr/share/nginx/html
+
+# Открытие порта
+EXPOSE 80
